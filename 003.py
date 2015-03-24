@@ -1,11 +1,16 @@
 #!/usr/bin/env python
 
-#from functools import reduce
-
-def main():
-    lis = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics.".split()
-    lis = [ n for n in map(lambda x: len(x), lis) ]
-    print(lis)
+"""
+>>> solve()
+[3, 1, 4, 1, 5, 9, 2, 6, 5, 3, 5, 8, 9, 7, 9]
+"""
+def solve():
+    s = "Now I need a drink, alcoholic of course, after the heavy lectures involving quantum mechanics."
+    lis = re.sub(r'[,.]', '', s).split()
+    return [ n for n in map(lambda x: len(x), lis) ]
 
 if __name__ == '__main__':
-    main()
+    import re
+    from functools import reduce
+    import doctest
+    doctest.testmod()

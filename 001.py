@@ -1,3 +1,12 @@
 #!/usr/bin/env python
 
-print("パタトクカシーー"[::2])
+"""
+>>> solve()
+'パトカー'
+"""
+def solve():
+    return "パタトクカシーー"[::2]
+
+if __name__ == '__main__':
+    import doctest
+    doctest.testmod()
