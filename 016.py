@@ -6,6 +6,9 @@
 
 from optparse import OptionParser
 
+"""
+split -l
+"""
 def main():
     parser = OptionParser()
     parser.add_option("-n", None, type="int", dest="nsplit", help="split count")
@@ -20,9 +23,6 @@ def main():
     outfiles = ["{0}{num:0{width}}".format(outprefix, num=num, width=width) for num in range(options.nsplit)]
 
     for i in range(options.nsplit):
-        print("===%d===" % i)
-        print(''.join(lines[i*N : i*N + N]))
-
         out = open(outfiles[i], 'w')
         out.write(''.join(lines[i*N : i*N + N]))
 
