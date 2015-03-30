@@ -18,7 +18,6 @@ def main(path):
                         print(sentence[i-1]['surface'] + 'の' + sentence[i+1]['surface'])
             except IndexError:
                 pass
-                        
 
 if __name__ == '__main__':
     main(sys.argv[1])
