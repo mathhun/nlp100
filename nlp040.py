@@ -36,6 +36,19 @@ class Chunk:
     def append(self, morph):
         self.morphs.append(morph)
 
+    def text(self):
+        txt = ''
+        for morph in self.morphs:
+            if morph.pos != '記号':
+                txt += morph.surface
+        return txt
+
+    def contains(self, klass):
+        for morph in self.morphs:
+            if morph.pos == klass:
+                return True
+        return False
+
     def __str__(self):
         ms = []
         for m in self.morphs:
