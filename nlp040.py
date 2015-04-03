@@ -43,11 +43,21 @@ class Chunk:
                 txt += morph.surface
         return txt
 
+    def isspace(self):
+        return all([ morph.pos1 == '空白' for morph in self.morphs ])
+
     def contains(self, klass):
         for morph in self.morphs:
             if morph.pos == klass:
                 return True
         return False
+
+    def get(self, klass):
+        morphs = []
+        for morph in self.morphs:
+            if morph.pos == klass:
+                morphs.append(morph)
+        return morphs
 
     def __str__(self):
         ms = []
