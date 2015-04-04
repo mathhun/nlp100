@@ -48,14 +48,16 @@ class Chunk:
 
     def contains(self, klass):
         for morph in self.morphs:
-            if morph.pos == klass:
+            if hasattr(klass, '__call__') and klass(morph) \
+               or morph.pos == klass:
                 return True
         return False
 
     def get(self, klass):
         morphs = []
         for morph in self.morphs:
-            if morph.pos == klass:
+            if hasattr(klass, '__call__') and klass(morph) \
+               or morph.pos == klass:
                 morphs.append(morph)
         return morphs
 
