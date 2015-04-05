@@ -28,7 +28,9 @@ def main():
     sentences = []
     while True:
         s, r = take_sentence(text)
-        if s is None: break
+        if s is None:
+            sentences.append(r)
+            break
         sentences.append(s)
         text = r
 
