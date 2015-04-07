@@ -1,2 +1,4 @@
 __pycache__
-tmp
+.python-version
+tmp/
+lib/
