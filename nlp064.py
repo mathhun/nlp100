@@ -10,7 +10,7 @@ rating.value
 
 import gzip
 import json
-from pymongo import MongoClient, ASCENDING, DESCENDING
+from pymongo import MongoClient, ASCENDING
 
 def db():
     client = MongoClient()
@@ -39,8 +39,8 @@ def create_index():
     coll.create_index([("rating.value", ASCENDING)])
 
 def main():
-    #artists = load_artists()
-    #mongo_import(artists)
+    artists = load_artists()
+    mongo_import(artists)
     create_index()
 
 if __name__ == '__main__':
