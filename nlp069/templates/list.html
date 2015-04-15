@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+  <head>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="static/main.css">
+    <title>Artist Search</title>
+  </head>
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Artist Search <small>(NLP100)</small></a>
+        </div>
+        <!--
+            <div id="navbar" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </div>--><!--/.nav-collapse -->
+      </div>
+    </nav>
+    <div class="main container">
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <form method="POST" action="/" class="form-inline">
+            <div class="form-group">
+              <label for="artists">Artist Name</label>
+              <input type="text" class="form-control" id="artist" name="artist" placeholder="Artist Name"
+                     value="{{ artist }}">
+            </div>
+            <div class="form-group">
+              <label for="Alisa">Artist Alias</label>
+              <input type="text" class="form-control" id="alias" name="alias" placeholder="Artist Alias"
+                     value="{{ alias }}">
+            </div>
+            <div class="form-group">
+              <label for="tag">Tag</label>
+              <input type="text" class="form-control" id="tag" name="tag" placeholder="Tag"
+                     value="{{ tag }}">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <h3>search result</h3>
+          <table class="table table-bordered table-striped">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Alias</th>
+                <th>Tags</th>
+                <th>Area</th>
+                <th>Rating (count, value)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for artist in artists %}
+              <tr>
+                <td>{{ artist["name"] }}</td>
+                <td>{{ ', '.join(artist["aliases"]) }}</td>
+                <td>{{ ', '.join(artist["tags"]) }}</td>
+                <td>{{ artist["area"] }}</td>
+                <td>{{ artist["rating"]["count"] + ", " + artist["rating"]["value"] }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div><!-- .main.container -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+  </body>
+</html>
