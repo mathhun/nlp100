@@ -61,23 +61,19 @@ def setup():
     neg.stemall()
     neg.count()
 
-    print("pos count")
-    print(len(pos.words))
+    #print("pos count")
+    #print(len(pos.words))
+    #print("neg count")
+    #print(len(neg.words))
+
+    #pos.delete(neg.words)
+    #neg.delete(pos.words)
+
+    #print("---pos---")
     #print(pos.most_common(100))
-    #print("\n")
-    print("neg count")
-    print(len(neg.words))
+    #print("---neg---")
     #print(neg.most_common(100))
     #print("\n")
-
-    pos.delete(neg.words)
-    neg.delete(pos.words)
-
-    print("---pos---")
-    print(pos.most_common(100))
-    print("---neg---")
-    print(neg.most_common(100))
-    print("\n")
 
     return pos, neg
 
